@@ -41,3 +41,19 @@ if (menuBtn && nav) {
 		menuBtn.classList.toggle('open');
 	});
 }
+
+const track = document.querySelector('.projects-track');
+
+document.querySelector('.next')?.addEventListener('click', () => {
+	track.scrollBy({
+		left: 400,
+		behavior: 'smooth',
+	});
+});
+
+document.querySelector('.prev')?.addEventListener('click', () => {
+	track.scrollBy({
+		left: -400,
+		behavior: 'smooth',
+	});
+});
