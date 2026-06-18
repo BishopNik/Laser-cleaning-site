@@ -47,54 +47,144 @@ document.querySelectorAll('.faq-item').forEach(item => {
 const track = document.querySelector('.projects-track');
 
 document.querySelector('.next')?.addEventListener('click', () => {
-	track?.scrollBy({ left: 280, behavior: 'smooth' });
+	track?.scrollBy({ left: 300, behavior: 'smooth' });
 });
 
 document.querySelector('.prev')?.addEventListener('click', () => {
-	track?.scrollBy({ left: -280, behavior: 'smooth' });
+	track?.scrollBy({ left: -300, behavior: 'smooth' });
+});
+
+const projectsModal = document.querySelector('.projects-modal');
+const galleryMainFrame = projectsModal?.querySelector('.gallery-main-frame');
+const galleryMain = projectsModal?.querySelector('.gallery-main');
+const galleryCaption = projectsModal?.querySelector('.gallery-caption');
+const i18nMessage = key => window.siteI18n?.message(key) || key;
+
+document.querySelector('[data-open-projects]')?.addEventListener('click', () => {
+	projectsModal?.showModal();
+});
+
+projectsModal?.querySelector('.modal-close')?.addEventListener('click', () => {
+	projectsModal.close();
+});
+
+projectsModal?.addEventListener('cancel', event => {
+	event.preventDefault();
+});
+
+galleryMainFrame?.addEventListener('click', () => {
+	const isZoomed = galleryMainFrame.classList.toggle('is-zoomed');
+	galleryMainFrame.setAttribute('aria-pressed', String(isZoomed));
+	galleryMainFrame.setAttribute(
+		'aria-label',
+		isZoomed ? i18nMessage('zoomOut') : i18nMessage('zoomIn'),
+	);
+});
+
+projectsModal?.querySelectorAll('.gallery-thumb').forEach(thumb => {
+	thumb.addEventListener('click', () => {
+		if (!galleryMain || !galleryCaption) {
+			return;
+		}
+
+		const src = thumb.dataset.full;
+		const alt = thumb.dataset.alt;
+
+		if (!src || !alt) {
+			return;
+		}
+
+		galleryMain.src = src;
+		galleryMain.alt = alt;
+		galleryCaption.textContent = alt;
+		galleryMainFrame?.classList.remove('is-zoomed');
+		galleryMainFrame?.setAttribute('aria-pressed', 'false');
+		galleryMainFrame?.setAttribute('aria-label', i18nMessage('zoomIn'));
+
+		projectsModal.querySelectorAll('.gallery-thumb').forEach(item => {
+			item.classList.toggle('active', item === thumb);
+		});
+	});
 });
 
 const countdown = document.querySelector('[data-countdown]');
-const day = 24 * 60 * 60 * 1000;
-const endDate = Date.now() + 2 * day + 12 * 60 * 60 * 1000 + 45 * 60 * 1000 + 30 * 1000;
 
 function pad(value) {
 	return String(value).padStart(2, '0');
 }
 
-function updateCountdown() {
-	if (!countdown) {
-		return;
+if (countdown) {
+	const day = 24 * 60 * 60 * 1000;
+	const endDate = Date.now() + 2 * day + 12 * 60 * 60 * 1000 + 45 * 60 * 1000 + 30 * 1000;
+
+	function updateCountdown() {
+		const remaining = Math.max(0, endDate - Date.now());
+		const days = Math.floor(remaining / day);
+		const hours = Math.floor((remaining % day) / (60 * 60 * 1000));
+		const minutes = Math.floor((remaining % (60 * 60 * 1000)) / (60 * 1000));
+		const seconds = Math.floor((remaining % (60 * 1000)) / 1000);
+
+		countdown.querySelector('[data-days]').textContent = pad(days);
+		countdown.querySelector('[data-hours]').textContent = pad(hours);
+		countdown.querySelector('[data-minutes]').textContent = pad(minutes);
+		countdown.querySelector('[data-seconds]').textContent = pad(seconds);
 	}
 
-	const remaining = Math.max(0, endDate - Date.now());
-	const days = Math.floor(remaining / day);
-	const hours = Math.floor((remaining % day) / (60 * 60 * 1000));
-	const minutes = Math.floor((remaining % (60 * 60 * 1000)) / (60 * 1000));
-	const seconds = Math.floor((remaining % (60 * 1000)) / 1000);
-
-	countdown.querySelector('[data-days]').textContent = pad(days);
-	countdown.querySelector('[data-hours]').textContent = pad(hours);
-	countdown.querySelector('[data-minutes]').textContent = pad(minutes);
-	countdown.querySelector('[data-seconds]').textContent = pad(seconds);
+	updateCountdown();
+	setInterval(updateCountdown, 1000);
 }
 
-updateCountdown();
-setInterval(updateCountdown, 1000);
-
-document.querySelector('.quote-form')?.addEventListener('submit', event => {
+document.querySelector('.quote-form')?.addEventListener('submit', async event => {
 	event.preventDefault();
 
 	const form = event.currentTarget;
 	const message = form.querySelector('.form-message');
+	const submitButton = form.querySelector('button[type="submit"]');
 	const isValid = form.checkValidity();
 
 	if (!isValid) {
-		message.textContent = 'Uzupełnij wymagane pola, a przygotujemy wycenę.';
+		if (message) {
+			message.textContent = i18nMessage('invalid');
+		}
 		form.reportValidity();
 		return;
 	}
 
-	message.textContent = 'Dziękujemy. Zapytanie jest gotowe do wysłania.';
-	form.reset();
+	const buttonLabel = submitButton?.textContent;
+	if (submitButton) {
+		submitButton.disabled = true;
+		submitButton.textContent = i18nMessage('sending');
+	}
+	if (message) {
+		message.textContent = '';
+	}
+
+	try {
+		const payload = Object.fromEntries(new FormData(form));
+		payload.language = window.siteI18n?.language || 'pl';
+
+		const response = await fetch(form.dataset.endpoint || '/api/quote', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(payload),
+		});
+
+		if (!response.ok) {
+			throw new Error('Telegram request failed');
+		}
+
+		if (message) {
+			message.textContent = i18nMessage('success');
+		}
+		form.reset();
+	} catch {
+		if (message) {
+			message.textContent = i18nMessage('error');
+		}
+	} finally {
+		if (submitButton) {
+			submitButton.disabled = false;
+			submitButton.textContent = buttonLabel;
+		}
+	}
 });

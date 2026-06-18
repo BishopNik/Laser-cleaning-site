@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="82" viewBox="0 0 320 82" role="img" aria-labelledby="title desc">
+	<title id="title">Laser Clean</title>
+	<desc id="desc">Logo firmy Laser Clean</desc>
+	<defs>
+		<linearGradient id="beam" x1="0" x2="1" y1="0" y2="1">
+			<stop offset="0" stop-color="#ffb000" />
+			<stop offset="1" stop-color="#ff5a00" />
+		</linearGradient>
+	</defs>
+	<g fill="none" stroke="url(#beam)" stroke-linecap="round" stroke-linejoin="round">
+		<circle cx="40" cy="41" r="9" stroke-width="4" />
+		<path stroke-width="4" d="M40 7v17M40 58v17M6 41h17M57 41h17M16 17l12 12M52 53l12 12M64 17 52 29M28 53 16 65" />
+		<path stroke-width="3" d="M26 41h28M40 27v28" opacity=".75" />
+	</g>
+	<text x="92" y="36" fill="#aee8ff" font-family="Manrope, Arial, sans-serif" font-size="27" font-weight="800" textLength="205" lengthAdjust="spacingAndGlyphs">LASER CLEAN</text>
+	<text x="92" y="58" fill="#ffffff" font-family="Manrope, Arial, sans-serif" font-size="10.5" font-weight="700" textLength="205" lengthAdjust="spacingAndGlyphs">CZYSZCZENIE LASEROWE</text>
+</svg>

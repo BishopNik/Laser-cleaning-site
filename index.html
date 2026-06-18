@@ -13,7 +13,7 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
 			rel="stylesheet"
 		/>
 		<link rel="stylesheet" href="./css/style.css" />
@@ -22,36 +22,43 @@
 		<header class="site-header">
 			<div class="container header-inner">
 				<a class="brand" href="#top" aria-label="Laser Clean">
-					<span class="brand-mark" aria-hidden="true"></span>
-					<span class="brand-text">
-						<strong>Laser Clean</strong>
-						<small>Czyszczenie laserowe</small>
-					</span>
+					<img class="brand-logo" src="./images/logo-laser-clean.svg" alt="Laser Clean" />
 				</a>
 
 				<nav class="nav" aria-label="Główna nawigacja">
-					<a href="#top">Strona główna</a>
+					<a class="nav-home" href="#top" aria-label="Strona główna">
+						<img src="./images/icon-home.svg" alt="" aria-hidden="true" />
+					</a>
 					<a href="#services">Usługi</a>
 					<a href="#process">Jak to działa?</a>
 					<a href="#applications">Zastosowania</a>
 					<a href="#projects">Realizacje</a>
-					<a href="#pricing">Cennik</a>
 					<a href="#faq">FAQ</a>
 					<a href="#contact">Kontakt</a>
 				</nav>
 
 				<div class="header-contact">
-					<a class="phone" href="tel:+48600123456">
+					<div class="language-switcher" aria-label="Wybór języka">
+						<button type="button" data-language="pl" aria-pressed="true">PL</button>
+						<button type="button" data-language="en" aria-pressed="false">EN</button>
+						<button type="button" data-language="de" aria-pressed="false">DE</button>
+					</div>
+					<a class="phone" href="tel:+48787415286">
 						<span aria-hidden="true">☎</span>
 						<span>
-							<strong>+48 600 123 456</strong>
+							<strong>+48 787 415 286</strong>
 							<small>Darmowa wycena</small>
 						</span>
 					</a>
 					<a class="quote-btn" href="#contact">Zamów wycenę</a>
 				</div>
 
-				<button class="menu-btn" type="button" aria-label="Otwórz menu" aria-expanded="false">
+				<button
+					class="menu-btn"
+					type="button"
+					aria-label="Otwórz menu"
+					aria-expanded="false"
+				>
 					<span></span>
 					<span></span>
 					<span></span>
@@ -65,8 +72,11 @@
 				<div class="container hero-grid">
 					<div class="hero-copy">
 						<h1>
-							Laserowe czyszczenie
-							<span>Precyzja, która przywraca idealną czystość</span>
+							<span class="hero-title-line">Laserowe czyszczenie</span>
+							<span class="hero-subtitle">
+								<span>Precyzja, która przywraca</span>
+								<span>idealną czystość</span>
+							</span>
 						</h1>
 						<p>
 							Usuwamy rdzę, farbę, olej, smar i inne zanieczyszczenia bez uszkodzenia
@@ -74,10 +84,30 @@
 						</p>
 
 						<div class="hero-benefits" aria-label="Najważniejsze zalety">
-							<div><span aria-hidden="true">⌁</span>Bez chemii i środków ściernych</div>
-							<div><span aria-hidden="true">◒</span>Bezpieczne dla powierzchni</div>
-							<div><span aria-hidden="true">◎</span>Ekologiczne i bezodpadowe</div>
-							<div><span aria-hidden="true">✕</span>Precyzyjne i skuteczne</div>
+							<div>
+								<span aria-hidden="true">
+									<img src="./images/icon-no-chemistry.svg" alt="" />
+								</span>
+								Bez chemii i środków ściernych
+							</div>
+							<div>
+								<span aria-hidden="true">
+									<img src="./images/icon-surface.svg" alt="" />
+								</span>
+								Bezpieczne dla powierzchni
+							</div>
+							<div>
+								<span aria-hidden="true">
+									<img src="./images/icon-eco.svg" alt="" />
+								</span>
+								Ekologiczne i bezodpadowe
+							</div>
+							<div>
+								<span aria-hidden="true">
+									<img src="./images/icon-precision.svg" alt="" />
+								</span>
+								Precyzyjne i skuteczne
+							</div>
 						</div>
 
 						<div class="hero-actions">
@@ -110,33 +140,60 @@
 					<div class="applications-grid">
 						<article class="application-card">
 							<img src="./images/dct.jpg" alt="Usuwanie rdzy i korozji" />
-							<span aria-hidden="true">△</span>
+							<span aria-hidden="true"
+								><img src="./images/icon-rust.svg" alt=""
+							/></span>
 							<h3>Usuwanie rdzy i korozji</h3>
 						</article>
 						<article class="application-card">
-							<img src="./images/application-paint.jpg" alt="Usuwanie farb i lakierów" />
-							<span aria-hidden="true">✣</span>
-							<h3>Usuwanie farb i lakierów</h3>
+							<img
+								src="./images/application-metal-cleaning.png"
+								alt="Laserowe czyszczenie powierzchni metalowej"
+							/>
+							<span aria-hidden="true"
+								><img src="./images/icon-diagram.svg" alt=""
+							/></span>
+							<h3>Powierzchnie metalowe</h3>
 						</article>
 						<article class="application-card">
-							<img src="./images/application-weld.jpg" alt="Czyszczenie spawów i zgrzewów" />
-							<span aria-hidden="true">⌘</span>
-							<h3>Czyszczenie spawów i zgrzewów</h3>
+							<img
+								src="./images/application-weld.jpg"
+								alt="Czyszczenie cegły i klinkieru"
+							/>
+							<span aria-hidden="true"
+								><img src="./images/icon-brick.svg" alt=""
+							/></span>
+							<h3>Cegła, klinkier i elewacje</h3>
 						</article>
 						<article class="application-card">
-							<img src="./images/application-forms.jpg" alt="Czyszczenie form, matryc i odlewów" />
-							<span aria-hidden="true">□</span>
-							<h3>Czyszczenie form, matryc i odlewów</h3>
+							<img
+								src="./images/application-forms.jpg"
+								alt="Czyszczenie tarcz hamulcowych"
+							/>
+							<span aria-hidden="true"
+								><img src="./images/icon-brake.svg" alt=""
+							/></span>
+							<h3>Tarcze i detale samochodowe</h3>
 						</article>
 						<article class="application-card">
-							<img src="./images/application-stone.jpg" alt="Kamień, beton i elewacje" />
-							<span aria-hidden="true">▧</span>
-							<h3>Kamień, beton i elewacje</h3>
+							<img
+								src="./images/application-stone.jpg"
+								alt="Czyszczenie felg aluminiowych"
+							/>
+							<span aria-hidden="true"
+								><img src="./images/icon-wheel.svg" alt=""
+							/></span>
+							<h3>Felgi i elementy aluminiowe</h3>
 						</article>
 						<article class="application-card">
-							<img src="./images/project-detail.jpg" alt="Detale samochodowe i przemysłowe" />
-							<span aria-hidden="true">◈</span>
-							<h3>Detale samochodowe i przemysłowe</h3>
+							<img
+								src="./images/project-detail.jpg"
+								alt="Czyszczenie drewna i starych lakierów"
+							/>
+							<span aria-hidden="true"
+								><img src="./images/icon-wood.svg" alt=""
+							/></span>
+							<h3>Drewno, meble i stare lakiery</h3>
 						</article>
 					</div>
 				</div>
@@ -167,7 +224,10 @@
 						<article class="laser-diagram">
 							<h3>Zasada działania lasera</h3>
 							<div class="diagram-scene">
-								<img src="./images/laser.jpg" alt="Wiązka lasera podczas czyszczenia" />
+								<img
+									src="./images/laser.jpg"
+									alt="Wiązka lasera podczas czyszczenia"
+								/>
 								<div class="beam" aria-hidden="true"></div>
 								<ul>
 									<li>Wiązka lasera</li>
@@ -181,7 +241,10 @@
 						<article class="before-after">
 							<h3>Efekt czyszczenia</h3>
 							<div class="comparison">
-								<img src="./images/dct.jpg" alt="Porównanie powierzchni przed i po czyszczeniu" />
+								<img
+									src="./images/dct.jpg"
+									alt="Porównanie powierzchni przed i po czyszczeniu"
+								/>
 								<span>Przed</span>
 								<span>Po</span>
 							</div>
@@ -196,31 +259,41 @@
 					<div class="work-steps">
 						<article class="work-step">
 							<span class="step-number">1</span>
-							<div class="step-icon" aria-hidden="true">☎</div>
+							<div class="step-icon" aria-hidden="true">
+								<img src="./images/step-contact.svg" alt="" />
+							</div>
 							<h3>Kontakt</h3>
 							<p>Skontaktuj się z nami telefonicznie lub przez formularz.</p>
 						</article>
 						<article class="work-step">
 							<span class="step-number">2</span>
-							<div class="step-icon" aria-hidden="true">▣</div>
+							<div class="step-icon" aria-hidden="true">
+								<img src="./images/step-quote.svg" alt="" />
+							</div>
 							<h3>Wycena</h3>
 							<p>Przygotujemy darmową wycenę w ciągu 24h.</p>
 						</article>
 						<article class="work-step">
 							<span class="step-number">3</span>
-							<div class="step-icon" aria-hidden="true">▰</div>
+							<div class="step-icon" aria-hidden="true">
+								<img src="./images/step-arrival.svg" alt="" />
+							</div>
 							<h3>Dojazd</h3>
 							<p>Przyjeżdżamy na miejsce i zabezpieczamy obszar pracy.</p>
 						</article>
 						<article class="work-step">
 							<span class="step-number">4</span>
-							<div class="step-icon" aria-hidden="true">✴</div>
+							<div class="step-icon" aria-hidden="true">
+								<img src="./images/step-cleaning.svg" alt="" />
+							</div>
 							<h3>Czyszczenie laserem</h3>
 							<p>Usuwamy zanieczyszczenia szybko i bezpiecznie.</p>
 						</article>
 						<article class="work-step">
 							<span class="step-number">5</span>
-							<div class="step-icon" aria-hidden="true">◇</div>
+							<div class="step-icon" aria-hidden="true">
+								<img src="./images/step-result.svg" alt="" />
+							</div>
 							<h3>Efekt</h3>
 							<p>Czysta powierzchnia jest gotowa do dalszego użycia.</p>
 						</article>
@@ -238,7 +311,7 @@
 							<li>Najlepsza cena na rynku</li>
 						</ul>
 					</div>
-					<form class="quote-form" novalidate>
+					<form class="quote-form" data-endpoint="/api/quote" novalidate>
 						<div class="form-row">
 							<input type="text" name="name" placeholder="Imię i nazwisko" required />
 							<input type="tel" name="phone" placeholder="Telefon" required />
@@ -253,7 +326,8 @@
 							<button class="btn" type="submit">Wyślij zapytanie</button>
 						</div>
 						<p class="privacy-note">
-							Klikając „Wyślij zapytanie” zgadzasz się na przetwarzanie danych osobowych.
+							Klikając „Wyślij zapytanie” zgadzasz się na przetwarzanie danych
+							osobowych.
 						</p>
 						<p class="form-message" role="status"></p>
 					</form>
@@ -265,35 +339,45 @@
 					<h2>Dlaczego warto nas wybrać?</h2>
 					<div class="benefits-grid">
 						<article class="benefit">
-							<span aria-hidden="true">⚙</span>
+							<span aria-hidden="true"
+								><img src="./images/icon-laser-work.svg" alt=""
+							/></span>
 							<div>
 								<h3>Nowoczesna technologia</h3>
 								<p>Laser światłowodowy o wysokiej mocy.</p>
 							</div>
 						</article>
 						<article class="benefit">
-							<span aria-hidden="true">✣</span>
+							<span aria-hidden="true"
+								><img src="./images/icon-precision.svg" alt=""
+							/></span>
 							<div>
 								<h3>Doświadczeni specjaliści</h3>
 								<p>Setki realizowanych projektów w Polsce i za granicą.</p>
 							</div>
 						</article>
 						<article class="benefit">
-							<span aria-hidden="true">▰</span>
+							<span aria-hidden="true"
+								><img src="./images/icon-truck.svg" alt=""
+							/></span>
 							<div>
 								<h3>Dojazd na terenie całej Polski</h3>
 								<p>Przyjeżdżamy do klienta w dogodnym terminie.</p>
 							</div>
 						</article>
 						<article class="benefit">
-							<span aria-hidden="true">☼</span>
+							<span aria-hidden="true"
+								><img src="./images/icon-shield.svg" alt=""
+							/></span>
 							<div>
 								<h3>Gwarancja jakości</h3>
 								<p>Gwarantujemy bezpieczeństwo i skuteczność czyszczenia.</p>
 							</div>
 						</article>
 						<article class="benefit">
-							<span aria-hidden="true">♧</span>
+							<span aria-hidden="true"
+								><img src="./images/icon-eco.svg" alt=""
+							/></span>
 							<div>
 								<h3>Ekologiczne rozwiązanie</h3>
 								<p>Bez chemii, bez wody i bez odpadów wtórnych.</p>
@@ -307,7 +391,13 @@
 				<div class="container">
 					<h2>Realizacje</h2>
 					<div class="projects-shell">
-						<button class="slider-btn prev" type="button" aria-label="Poprzednie realizacje">‹</button>
+						<button
+							class="slider-btn prev"
+							type="button"
+							aria-label="Poprzednie realizacje"
+						>
+							‹
+						</button>
 						<div class="projects-track" tabindex="0">
 							<article class="project-slide">
 								<img src="./images/dct.jpg" alt="Przed i po czyszczeniu detalu" />
@@ -315,61 +405,179 @@
 								<span>Po</span>
 							</article>
 							<article class="project-slide">
-								<img src="./images/application-paint.jpg" alt="Efekt usuwania farby laserem" />
+								<img
+									src="./images/application-stone.jpg"
+									alt="Felga przed i po czyszczeniu"
+								/>
 								<span>Przed</span>
 								<span>Po</span>
 							</article>
 							<article class="project-slide">
-								<img src="./images/application-weld.jpg" alt="Czyszczenie spawu laserem" />
+								<img
+									src="./images/project-gear-before-after.png"
+									alt="Koło zębate przed i po czyszczeniu laserowym"
+								/>
 								<span>Przed</span>
 								<span>Po</span>
 							</article>
 							<article class="project-slide">
-								<img src="./images/application-forms.jpg" alt="Czyszczenie form przemysłowych" />
+								<img
+									src="./images/project-vise-before-after.png"
+									alt="Imadło przed i po czyszczeniu laserowym"
+								/>
 								<span>Przed</span>
 								<span>Po</span>
 							</article>
 							<article class="project-slide">
-								<img src="./images/project-detail.jpg" alt="Czyszczenie detalu przemysłowego" />
+								<img
+									src="./images/project-detail.jpg"
+									alt="Drewniany element przed i po usunięciu starej powłoki"
+								/>
 								<span>Przed</span>
 								<span>Po</span>
 							</article>
 							<article class="project-slide">
-								<img src="./images/project-surface.jpg" alt="Efekt czyszczenia powierzchni" />
+								<img
+									src="./images/project-surface.jpg"
+									alt="Efekt czyszczenia powierzchni"
+								/>
 								<span>Przed</span>
 								<span>Po</span>
 							</article>
 						</div>
-						<button class="slider-btn next" type="button" aria-label="Następne realizacje">›</button>
+						<button
+							class="slider-btn next"
+							type="button"
+							aria-label="Następne realizacje"
+						>
+							›
+						</button>
 					</div>
-					<a class="more-link" href="#contact">Zobacz więcej realizacji</a>
+					<button class="more-link" type="button" data-open-projects>
+						Zobacz więcej realizacji
+					</button>
 				</div>
 			</section>
 
-			<section id="pricing" class="stats-band">
+			<dialog class="projects-modal" aria-labelledby="projects-modal-title">
+				<div class="projects-modal-shell">
+					<button class="modal-close" type="button" aria-label="Zamknij galerię">
+						×
+					</button>
+					<h2 id="projects-modal-title">Realizacje przed i po</h2>
+					<p class="projects-modal-lead">
+						Wybierz realizację, a następnie kliknij duże zdjęcie, aby je powiększyć.
+					</p>
+
+					<figure class="gallery-preview">
+						<button
+							class="gallery-main-frame"
+							type="button"
+							aria-label="Powiększ zdjęcie"
+							aria-pressed="false"
+						>
+							<img
+								class="gallery-main"
+								src="./images/dct.jpg"
+								alt="Usuwanie rdzy z metalowego detalu"
+							/>
+						</button>
+						<figcaption class="gallery-caption">
+							Usuwanie rdzy z metalowego detalu
+						</figcaption>
+					</figure>
+
+					<div class="gallery-grid" aria-label="Wszystkie realizacje">
+						<button
+							class="gallery-thumb active"
+							type="button"
+							data-full="./images/dct.jpg"
+							data-alt="Usuwanie rdzy z metalowego detalu"
+						>
+							<img src="./images/dct.jpg" alt="" />
+						</button>
+						<button
+							class="gallery-thumb"
+							type="button"
+							data-full="./images/application-forms.jpg"
+							data-alt="Tarcze hamulcowe przed i po czyszczeniu"
+						>
+							<img src="./images/application-forms.jpg" alt="" />
+						</button>
+						<button
+							class="gallery-thumb"
+							type="button"
+							data-full="./images/application-stone.jpg"
+							data-alt="Felga przed i po czyszczeniu"
+						>
+							<img src="./images/application-stone.jpg" alt="" />
+						</button>
+						<button
+							class="gallery-thumb"
+							type="button"
+							data-full="./images/project-detail.jpg"
+							data-alt="Drewniany element przed i po usunięciu starej powłoki"
+						>
+							<img src="./images/project-detail.jpg" alt="" />
+						</button>
+						<button
+							class="gallery-thumb"
+							type="button"
+							data-full="./images/project-surface.jpg"
+							data-alt="Metalowa powierzchnia przed i po czyszczeniu"
+						>
+							<img src="./images/project-surface.jpg" alt="" />
+						</button>
+						<button
+							class="gallery-thumb"
+							type="button"
+							data-full="./images/project-gear-before-after.png"
+							data-alt="Koło zębate przed i po czyszczeniu laserowym"
+						>
+							<img src="./images/project-gear-before-after.png" alt="" />
+						</button>
+						<button
+							class="gallery-thumb"
+							type="button"
+							data-full="./images/project-vise-before-after.png"
+							data-alt="Imadło przed i po czyszczeniu laserowym"
+						>
+							<img src="./images/project-vise-before-after.png" alt="" />
+						</button>
+					</div>
+				</div>
+			</dialog>
+
+			<section class="stats-band">
 				<div class="container stats-grid">
 					<div class="stat">
-						<span aria-hidden="true">⌁</span>
+						<span aria-hidden="true"
+							><img src="./images/icon-laser-work.svg" alt=""
+						/></span>
 						<strong>500+</strong>
 						<p>Zrealizowanych projektów</p>
 					</div>
 					<div class="stat">
-						<span aria-hidden="true">◎</span>
+						<span aria-hidden="true"
+							><img src="./images/icon-shield.svg" alt=""
+						/></span>
 						<strong>98%</strong>
 						<p>Zadowolonych klientów</p>
 					</div>
 					<div class="stat">
-						<span aria-hidden="true">⌘</span>
+						<span aria-hidden="true"
+							><img src="./images/icon-precision.svg" alt=""
+						/></span>
 						<strong>5 lat</strong>
 						<p>Doświadczenia w czyszczeniu laserem</p>
 					</div>
 					<div class="stat">
-						<span aria-hidden="true">☆</span>
+						<span aria-hidden="true"><img src="./images/icon-eco.svg" alt="" /></span>
 						<strong>100%</strong>
 						<p>Ekologiczne i bezpieczne</p>
 					</div>
 					<div class="stat">
-						<span aria-hidden="true">▱</span>
+						<span aria-hidden="true"><img src="./images/icon-truck.svg" alt="" /></span>
 						<strong>Cała Polska</strong>
 						<p>Dojazd do klienta w 24/48h</p>
 					</div>
@@ -383,10 +591,15 @@
 						<div class="reviews">
 							<article class="review">
 								<span class="quote-mark">“</span>
-								<p>Laser Clean to profesjonalizm i skuteczność. Rdza zniknęła bez uszkodzeń.</p>
+								<p>
+									Laser Clean to profesjonalizm i skuteczność. Rdza zniknęła bez
+									uszkodzeń.
+								</p>
 								<div class="review-author">
 									<span>MK</span>
-									<div><strong>Marcin K.</strong><small>Konstrukcje stalowe</small></div>
+									<div>
+										<strong>Marcin K.</strong><small>Konstrukcje stalowe</small>
+									</div>
 								</div>
 								<div class="stars" aria-label="5 z 5">★★★★★</div>
 							</article>
@@ -395,16 +608,24 @@
 								<p>Szybko, czysto i bez uszkodzeń. Najlepsza firma w branży.</p>
 								<div class="review-author">
 									<span>PB</span>
-									<div><strong>Paweł B.</strong><small>Przemysł motoryzacyjny</small></div>
+									<div>
+										<strong>Paweł B.</strong
+										><small>Przemysł motoryzacyjny</small>
+									</div>
 								</div>
 								<div class="stars" aria-label="5 z 5">★★★★★</div>
 							</article>
 							<article class="review">
 								<span class="quote-mark">“</span>
-								<p>Polecam, świetny kontakt, terminowość i perfekcyjny efekt końcowy.</p>
+								<p>
+									Polecam, świetny kontakt, terminowość i perfekcyjny efekt
+									końcowy.
+								</p>
 								<div class="review-author">
 									<span>TW</span>
-									<div><strong>Tomasz W.</strong><small>Firma produkcyjna</small></div>
+									<div>
+										<strong>Tomasz W.</strong><small>Firma produkcyjna</small>
+									</div>
 								</div>
 								<div class="stars" aria-label="5 z 5">★★★★★</div>
 							</article>
@@ -414,74 +635,109 @@
 					<div>
 						<h2>Najczęściej zadawane pytania</h2>
 						<div class="faq-list">
-							<article class="faq-item active">
+							<article class="faq-item">
 								<button class="faq-question" type="button">
-									Na czym polega czyszczenie laserowe?<span>+</span>
+									Czym jest czyszczenie laserowe?<span>+</span>
 								</button>
 								<div class="faq-answer">
 									<p>
-										Wiązka lasera odparowuje rdzę, farbę, olej lub nagar z powierzchni.
-										Proces jest bezkontaktowy, dlatego nie wymaga piasku, wody ani chemii.
+										Czyszczenie laserowe to bezkontaktowa metoda usuwania brudu,
+										rdzy i farby za pomocą skoncentrowanej wiązki światła. Laser
+										silnie nagrzewa i odparowuje zanieczyszczenia, nie
+										uszkadzając materiału pod spodem.
 									</p>
 								</div>
 							</article>
 							<article class="faq-item">
 								<button class="faq-question" type="button">
-									Czy laser nie uszkodzi czyszczonego elementu?<span>+</span>
+									Czy laserowe czyszczenie jest bezpieczne dla powierzchni?<span
+										>+</span
+									>
 								</button>
 								<div class="faq-answer">
 									<p>
-										Nie, jeśli parametry są dobrane do materiału. Przed pracą sprawdzamy
-										rodzaj podłoża i dobieramy moc, częstotliwość oraz tempo prowadzenia
-										wiązki.
+										Tak, czyszczenie laserowe jest w pełni bezpieczne dla
+										czyszczonej powierzchni. Jest to metoda bezkontaktowa, która
+										nie powoduje uszkodzeń mechanicznych.
 									</p>
 								</div>
 							</article>
 							<article class="faq-item">
 								<button class="faq-question" type="button">
-									Jakie zabrudzenia można usuwać laserem?<span>+</span>
+									Dlaczego jest bezpieczne?<span>+</span>
+								</button>
+								<div class="faq-answer">
+									<ul>
+										<li>Brak ścierania: nie rysuje metalu jak piaskowanie.</li>
+										<li>Selektywność: laser reaguje tylko z brudem i rdzą.</li>
+										<li>
+											Odbicie światła: czyste podłoże odbija promień lasera.
+										</li>
+										<li>
+											Brak chemii: nie powoduje korozji chemicznej materiału.
+										</li>
+										<li>
+											Kontrola termiczna: krótkie impulsy nie przegrzewają
+											detali.
+										</li>
+									</ul>
+								</div>
+							</article>
+							<article class="faq-item">
+								<button class="faq-question" type="button">
+									Jakie materiały można czyścić laserem?<span>+</span>
 								</button>
 								<div class="faq-answer">
 									<p>
-										Usuwamy rdzę, farby, lakiery, smary, oleje, nagar, naloty, tlenki,
-										zabrudzenia po spawaniu oraz osady technologiczne.
+										Laserem można bezpiecznie czyścić większość twardych i
+										odpornych na temperaturę materiałów.
+									</p>
+									<ul>
+										<li>
+											Stal i żeliwo: rdza, zendra i stare powłoki malarskie.
+										</li>
+										<li>Metale kolorowe: aluminium, miedź i mosiądz.</li>
+										<li>Kamień naturalny: granit, marmur i piaskowiec.</li>
+										<li>Cegła i klinkier: osady, sadza oraz graffiti.</li>
+										<li>Kompozyty, Kevlar, drewno, szkło i ceramika.</li>
+									</ul>
+								</div>
+							</article>
+							<article class="faq-item">
+								<button class="faq-question" type="button">
+									Czy proces jest ekologiczny?<span>+</span>
+								</button>
+								<div class="faq-answer">
+									<p>
+										Tak, czyszczenie laserowe to jedna z najbardziej
+										ekologicznych metod czyszczenia przemysłowego. Nie generuje
+										szkodliwych odpadów i nie zatruwa środowiska.
 									</p>
 								</div>
 							</article>
 							<article class="faq-item">
 								<button class="faq-question" type="button">
-									Czy dojeżdżacie do klienta?<span>+</span>
+									Dlaczego proces jest ekologiczny?<span>+</span>
 								</button>
 								<div class="faq-answer">
-									<p>
-										Tak. Realizujemy czyszczenie mobilnie na terenie całej Polski. Możemy
-										pracować w hali, warsztacie, zakładzie produkcyjnym lub na miejscu
-										montażu.
-									</p>
-								</div>
-							</article>
-							<article class="faq-item">
-								<button class="faq-question" type="button">
-									Ile trwa realizacja zlecenia?<span>+</span>
-								</button>
-								<div class="faq-answer">
-									<p>
-										Małe elementy często czyścimy tego samego dnia. Przy większych
-										powierzchniach termin zależy od zakresu prac, dostępu do elementu i
-										rodzaju zabrudzenia.
-									</p>
-								</div>
-							</article>
-							<article class="faq-item">
-								<button class="faq-question" type="button">
-									Co wysłać, żeby otrzymać dokładną wycenę?<span>+</span>
-								</button>
-								<div class="faq-answer">
-									<p>
-										Najlepiej przesłać zdjęcia, przybliżone wymiary, lokalizację oraz krótki
-										opis zabrudzenia. Na tej podstawie przygotujemy konkretną wycenę i
-										najbliższy możliwy termin.
-									</p>
+									<ul>
+										<li>
+											Zero chemii: bez toksycznych rozpuszczalników i kwasów.
+										</li>
+										<li>
+											Brak odpadów wtórnych: bez ton brudnego piasku i zużytej
+											wody.
+										</li>
+										<li>Niskie zużycie zasobów: proces wymaga tylko prądu.</li>
+										<li>
+											Łatwa filtracja: odparowany brud trafia do filtrów
+											odciągowych.
+										</li>
+										<li>
+											Długa żywotność: urządzenia nie zużywają materiałów
+											eksploatacyjnych.
+										</li>
+									</ul>
 								</div>
 							</article>
 						</div>
@@ -493,7 +749,9 @@
 				<div class="container cta-inner">
 					<div>
 						<h2>Gotowy na czysty efekt?</h2>
-						<p>Skontaktuj się z nami i przekonaj się, jak działa laserowe czyszczenie.</p>
+						<p>
+							Skontaktuj się z nami i przekonaj się, jak działa laserowe czyszczenie.
+						</p>
 					</div>
 					<a class="btn btn-light" href="#contact">Zamów wycenę</a>
 				</div>
@@ -504,23 +762,17 @@
 			<div class="container footer-grid">
 				<div class="footer-brand">
 					<a class="brand" href="#top" aria-label="Laser Clean">
-						<span class="brand-mark" aria-hidden="true"></span>
-						<span class="brand-text">
-							<strong>Laser Clean</strong>
-							<small>Czyszczenie laserowe</small>
-						</span>
+						<img
+							class="brand-logo"
+							src="./images/logo-laser-clean.svg"
+							alt="Laser Clean"
+						/>
 					</a>
 					<p>
-						Profesjonalne czyszczenie laserowe rdzy, farb, olejów i innych zanieczyszczeń.
-						Działamy na terenie całej Polski.
+						Profesjonalne czyszczenie laserowe rdzy, farb, olejów i innych
+						zanieczyszczeń. Działamy na terenie całej Polski.
 					</p>
-					<div class="socials" aria-label="Media społecznościowe">
-						<a href="#" aria-label="Facebook">f</a>
-						<a href="#" aria-label="Instagram">i</a>
-						<a href="#" aria-label="YouTube">▶</a>
-						<a href="#" aria-label="LinkedIn">in</a>
-					</div>
-					<small>© 2024 Laser Clean. Wszelkie prawa zastrzeżone.</small>
+					<small>© 2026 Laser Clean. Wszelkie prawa zastrzeżone.</small>
 				</div>
 				<div>
 					<h3>Usługi</h3>
@@ -535,28 +787,30 @@
 					<a href="#process">O nas</a>
 					<a href="#services">Dlaczego my</a>
 					<a href="#projects">Realizacje</a>
-					<a href="#pricing">Cennik</a>
+					<a href="#contact">Wycena</a>
 					<a href="#faq">FAQ</a>
 					<a href="#contact">Kontakt</a>
 				</div>
 				<div>
 					<h3>Kontakt</h3>
-					<p>☎ +48 600 123 456</p>
-					<p>✉ biuro@laserclean.pl</p>
-					<p>⌖ ul. Przemysłowa 10<br />30-701 Kraków</p>
+					<p>☎ <a href="tel:+48787415286">+48 787 415 286</a></p>
+					<p>✉ <a href="mailto:laser.clean@gmail.com">laser.clean@gmail.com</a></p>
+					<p>⌖ ul. Oleśnicka 17<br />33-200 Dąbrowa Tarnowska</p>
 					<p>◷ Pon - Pt: 8:00 - 18:00</p>
 				</div>
 				<div class="map-box">
-					<div class="map-outline" aria-hidden="true"></div>
-					<p>Dojazd na terenie całej Polski</p>
-					<div class="footer-links">
-						<a href="#">Polityka prywatności</a>
-						<a href="#">RODO</a>
-					</div>
+					<img
+						class="coverage-map"
+						src="./images/map-poland.svg"
+						alt="Mapa Polski z punktem w rejonie Dąbrowy Tarnowskiej"
+					/>
+					<strong>Cała Polska</strong>
+					<p>Dojazd z Dąbrowy Tarnowskiej</p>
 				</div>
 			</div>
 		</footer>
 
+		<script src="./js/i18n.js"></script>
 		<script src="./js/script.js"></script>
 	</body>
 </html>
