@@ -524,10 +524,13 @@ textarea {
 	filter: saturate(0.93) contrast(1.04);
 }
 
-.application-card:nth-child(2) img,
 .application-card:nth-child(3) img,
 .application-card:nth-child(6) img {
 	object-position: center 72%;
+}
+
+.application-card:nth-child(2) img {
+	object-position: center;
 }
 
 .application-card span {
@@ -864,12 +867,12 @@ textarea {
 
 .form-row {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(3, minmax(0, 1fr));
 	gap: 9px;
 }
 
 .form-row-wide {
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(3, minmax(0, 1fr));
 	align-items: stretch;
 }
 
@@ -909,7 +912,7 @@ textarea {
 .quote-form .btn {
 	width: 100%;
 	min-height: 60px;
-	font-size: 1rem;
+	font-size: 1.06rem;
 	font-weight: 700;
 }
 

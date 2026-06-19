@@ -60,9 +60,19 @@ async function readJson(request) {
 async function handleQuote(request, response) {
 	const token = process.env.TELEGRAM_BOT_TOKEN;
 	const chatId = process.env.TELEGRAM_CHAT_ID;
+	const recipient = [
+		process.env.TELEGRAM_RECIPIENT_USERNAME &&
+			'@' + process.env.TELEGRAM_RECIPIENT_USERNAME.replace(/^@/, ''),
+		process.env.TELEGRAM_RECIPIENT_PHONE,
+	]
+		.filter(Boolean)
+		.join(' ');
 
-	if (!token || !chatId) {
-		sendJson(response, 503, { error: 'Telegram is not configured' });
+	if (!token || !chatId || token.includes('replace_with') || chatId.includes('replace_with')) {
+		sendJson(response, 503, {
+			error: 'Telegram is not configured',
+			recipient: recipient || '@NikanorovAn +380676721852',
+		});
 		return;
 	}
 
@@ -105,7 +115,8 @@ async function handleQuote(request, response) {
 		);
 
 		if (!telegramResponse.ok) {
-			throw new Error('Telegram API rejected the message');
+			const details = await telegramResponse.text();
+			throw new Error('Telegram API rejected the message: ' + details);
 		}
 
 		sendJson(response, 200, { ok: true });
