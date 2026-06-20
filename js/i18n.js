@@ -107,6 +107,7 @@
 		['Zmniejsz zdjęcie', 'Zoom out', 'Bild verkleinern'],
 		['Zrealizowanych projektów', 'Completed projects', 'Abgeschlossene Projekte'],
 		['Zadowolonych klientów', 'Satisfied customers', 'Zufriedene Kunden'],
+		['5 lat', '5 years', '5 Jahre'],
 		['Doświadczenia w czyszczeniu laserem', 'Laser-cleaning experience', 'Erfahrung in der Laserreinigung'],
 		['Ekologiczne i bezpieczne', 'Eco-friendly and safe', 'Umweltfreundlich und sicher'],
 		['Cała Polska', 'All of Poland', 'Ganz Polen'],

@@ -54,11 +54,11 @@ textarea {
 }
 
 .section {
-	padding: 28px 0;
+	padding: 64px 0;
 }
 
 .section-tight {
-	padding: 24px 0;
+	padding: 56px 0;
 }
 
 .section h2,
@@ -524,9 +524,12 @@ textarea {
 	filter: saturate(0.93) contrast(1.04);
 }
 
-.application-card:nth-child(3) img,
-.application-card:nth-child(6) img {
+.application-card:nth-child(3) img {
 	object-position: center 72%;
+}
+
+.application-card:nth-child(6) img {
+	object-position: center 30%;
 }
 
 .application-card:nth-child(2) img {
@@ -564,10 +567,27 @@ textarea {
 	font-weight: 700;
 }
 
+.application-card {
+	transition: transform 280ms ease;
+}
+
+.application-card img {
+	transition: transform 420ms ease, filter 420ms ease;
+}
+
+.application-card:hover {
+	transform: translateY(-5px);
+}
+
+.application-card:hover > img {
+	filter: saturate(1.04) contrast(1.06);
+	transform: scale(1.035);
+}
+
 /* Info */
 
 .info-section {
-	padding-top: 12px;
+	padding-top: 64px;
 }
 
 .info-grid {
@@ -730,7 +750,7 @@ textarea {
 /* Work */
 
 .work-section {
-	padding: 24px 0 34px;
+	padding: 64px 0;
 }
 
 .work-steps {
@@ -814,7 +834,7 @@ textarea {
 /* Quote */
 
 .quote-section {
-	padding: 0 0 24px;
+	padding: 0 0 64px;
 }
 
 .quote-grid {
@@ -982,7 +1002,7 @@ textarea {
 /* Projects */
 
 .projects-section {
-	padding-top: 20px;
+	padding-top: 64px;
 }
 
 .projects-shell {
@@ -1015,6 +1035,25 @@ textarea {
 	width: 100%;
 	height: 132px;
 	object-fit: cover;
+	object-position: center;
+	transition: transform 500ms ease, filter 500ms ease;
+}
+
+.project-slide:nth-child(5) img {
+	object-position: center 28%;
+}
+
+.project-slide:nth-child(6) img {
+	transform: scale(1.16) translate(17%, 6%);
+}
+
+.project-slide:hover img {
+	filter: saturate(1.06) contrast(1.05);
+	transform: scale(1.045);
+}
+
+.project-slide:nth-child(6):hover img {
+	transform: scale(1.2) translate(17%, 6%);
 }
 
 .project-slide::after {
@@ -1023,6 +1062,24 @@ textarea {
 	inset: 0;
 	background: linear-gradient(90deg, rgba(0, 0, 0, 0.16) 0 50%, rgba(255, 255, 255, 0.16) 50% 100%);
 	pointer-events: none;
+}
+
+.project-slide::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: -35%;
+	z-index: 1;
+	width: 18%;
+	background: linear-gradient(90deg, transparent, rgba(255, 122, 24, 0.34), transparent);
+	transform: skewX(-18deg);
+	transition: left 650ms ease;
+	pointer-events: none;
+}
+
+.project-slide:hover::before {
+	left: 120%;
 }
 
 .project-slide span {
@@ -1277,7 +1334,71 @@ textarea {
 /* Opinions and FAQ */
 
 .opinions-faq {
-	padding: 24px 0 32px;
+	padding: 64px 0;
+}
+
+/* Motion and attention cues */
+
+.reveal-ready .reveal-item {
+	opacity: 0;
+	transform: translateY(24px);
+	transition:
+		opacity 600ms ease,
+		transform 600ms cubic-bezier(0.2, 0.75, 0.25, 1);
+	transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-ready .reveal-item.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.title-rule {
+	background: linear-gradient(90deg, var(--orange) 20%, #ffd0ad 50%, var(--orange) 80%);
+	background-size: 220% 100%;
+	animation: title-glint 3.8s ease-in-out infinite;
+}
+
+.btn {
+	position: relative;
+	overflow: hidden;
+}
+
+.btn::after {
+	content: '';
+	position: absolute;
+	top: -60%;
+	left: -35%;
+	width: 22%;
+	height: 220%;
+	background: rgba(255, 255, 255, 0.24);
+	transform: rotate(18deg);
+	transition: left 520ms ease;
+	pointer-events: none;
+}
+
+.btn:hover::after {
+	left: 120%;
+}
+
+@keyframes title-glint {
+	0%, 55% { background-position: 100% 0; }
+	90%, 100% { background-position: -100% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html { scroll-behavior: auto; }
+	.reveal-ready .reveal-item {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+	.title-rule { animation: none; }
+	.application-card,
+	.application-card img,
+	.project-slide img,
+	.project-slide::before,
+	.btn::after { transition: none; }
 }
 
 .opinions-grid {

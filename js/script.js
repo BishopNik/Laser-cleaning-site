@@ -4,6 +4,34 @@ const header = document.querySelector('.site-header');
 const menuBtn = document.querySelector('.menu-btn');
 const nav = document.querySelector('.nav');
 
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+	const revealTargets = document.querySelectorAll(
+		'.section, .quote-section, .stats-band, .cta-band',
+	);
+	document.body.classList.add('reveal-ready');
+	revealTargets.forEach((element, index) => {
+		element.classList.add('reveal-item');
+		element.style.setProperty('--reveal-delay', `${(index % 3) * 45}ms`);
+	});
+
+	const revealObserver = new IntersectionObserver(
+		entries => {
+			entries.forEach(entry => {
+				if (!entry.isIntersecting) {
+					return;
+				}
+				entry.target.classList.add('is-visible');
+				revealObserver.unobserve(entry.target);
+			});
+		},
+		{ threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
+	);
+
+	revealTargets.forEach(element => revealObserver.observe(element));
+}
+
 document.querySelectorAll('a[href^="#"]').forEach(link => {
 	link.addEventListener('click', event => {
 		const id = link.getAttribute('href');
