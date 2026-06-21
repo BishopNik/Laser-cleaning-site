@@ -190,8 +190,10 @@ document.querySelector('.quote-form')?.addEventListener('submit', async event =>
 	try {
 		const payload = Object.fromEntries(new FormData(form));
 		payload.language = window.siteI18n?.language || 'pl';
+		const apiOrigin = document.querySelector('meta[name="contact-api-origin"]')?.content.replace(/\/$/, '');
+		if (!apiOrigin) throw new Error('Contact API origin is not configured');
 
-		const response = await fetch(form.dataset.endpoint || '/api/quote', {
+		const response = await fetch(`${apiOrigin}/api/contact/laser-clean`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(payload),
