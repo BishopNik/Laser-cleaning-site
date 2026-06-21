@@ -204,9 +204,14 @@ document.querySelector('.quote-form')?.addEventListener('submit', async event =>
 		}
 
 		if (message) {
-			message.textContent = i18nMessage('success');
+			message.textContent = '';
 		}
 		form.reset();
+		const currentLanguage = window.siteI18n?.language || 'pl';
+		window.submissionSuccess.show({
+			title: ({ pl: 'Dziękujemy', en: 'Thank you', de: 'Vielen Dank' })[currentLanguage] || 'Dziękujemy',
+			message: i18nMessage('success'),
+		});
 	} catch {
 		if (message) {
 			message.textContent = i18nMessage('error');
